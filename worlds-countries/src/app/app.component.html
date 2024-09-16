@@ -1,0 +1,60 @@
+<div class="main">
+<div class="container">
+    <header class="d-flex flex-wrap justify-content-center  py-3 mb-4">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <img id="header-img" class="header-logo" src="assets/images/wc-logo.png">
+      </a>
+
+      <ul class="nav nav-pills align-items-center">
+        <li class="nav-item"><a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="countries" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: false }">Manage Countries</a></li>
+        <li class="nav-item"><a class="nav-link" routerLinkActive="active"   data-bs-toggle="modal" data-bs-target="#aboutBox">About</a></li>
+      </ul>
+    </header>
+
+    <main>
+          <router-outlet></router-outlet>
+    </main>
+
+    <footer class="d-flex flex-wrap justify-content-between align-items-center border-top transition-all mt-4 mb-1 pt-3 pb-3">
+        <div class="col-md-4 d-flex align-items-center pt-1 cc" >
+          <span class="text-white">© 2024 World's Countries, Inc</span>
+        </div>
+    
+        <div class="icons-container col-md-6 justify-content-end list-unstyled d-flex align-items-center pt-1">
+          <li class="ms-3"><div class="icons text-body-white icon-size"><i class="bi bi-twitter-x"></i></div></li>
+          <li class="ms-3"><div class="icons text-body-white icon-size"><i class="bi bi-instagram"></i></div></li>
+          <li class="ms-3"><div class="icons text-body-white icon-size"><i class="bi bi-facebook"></i></div></li>
+        </div>
+      </footer>
+  </div>
+</div>
+
+<!-- About Modal -->
+<div class="modal fade" id="aboutBox" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content text-bg-dark">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">About</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body d-flex">
+        <div class="mousa col-3 ps-2 pe-2"><img src="../assets/images/mousa.jpeg" class="thumbnail" alt="Mousa"></div>
+        <div class="mousa-info col-9">Hi, I am Mousa Al-Kalouti, a software engineer and a Full Stack .Net Developer,
+           I created this sample website using Angular 18, Bootstrap 5, Web API, Entity Framework Core, and SQL Server.</div>
+      </div>
+      <div class="modal-footer">
+        <a href="https://www.linkedin.com/in/mousa-alkalouti" target="_blank" class="btn btn-primary"><i class="bi bi-linkedin pe-1"></i> Visit my LinkedIn page</a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="fixed-bottom-left">
+  <toast></toast>
+</div>
+
+<div class="scroll-to-top" [ngClass]="{'show': isVisible}" (click)="scrollToTop()">
+  <i class="bi bi-airplane-fill"></i>
+</div>

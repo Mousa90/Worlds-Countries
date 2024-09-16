@@ -1,0 +1,186 @@
+<nav aria-label="breadcrumb transition-all">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item first-breadcrumb"><a href="">Home</a></li>
+        <li class="breadcrumb-item"><a href="/countries">Manage Countries</a></li>
+        <li class="breadcrumb-item active text-white" aria-current="page">{{ title }}</li>
+    </ol>
+</nav>
+
+<h2>{{ title }}</h2>
+<div class="row d-flex flex-md-row transition-all">
+    <div class="col-md-6 product-form">
+        <form #f="ngForm" (ngSubmit)="save(f.value)">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input #name="ngModel" [(ngModel)]="country.name" name="name" id="name" type="text"
+                    class="form-control shadow-sm input-border" required>
+                <span class="text-white badge rounded-pill text-bg-danger"
+                    [style.visibility]="name.touched && name.invalid ? 'visible' : 'hidden'">
+                    *Name is required.
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea #description="ngModel" [(ngModel)]="country.description" name="description" id="description"
+                    type="text" class="form-control shadow-sm input-border" required></textarea>
+                <span class="text-white badge rounded-pill text-bg-danger"
+                    [style.visibility]="description.touched && description.invalid ? 'visible' : 'hidden'">
+                    *Description is required.
+                </span>
+
+            </div>
+
+            <div class="form-group">
+                <label for="flagUrl">Flag Url</label>
+                <input #flagUrl="ngModel" [(ngModel)]="country.flagUrl" name="flagUrl" id="flagUrl" type="text"
+                    class="form-control shadow-sm input-border" required ngv-url>
+
+                <span class="text-white badge rounded-pill text-bg-danger"
+                    [style.visibility]="flagUrl.touched && flagUrl.invalid ? 'visible' : 'hidden'">
+                    *Flag Image URL is required.
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="imageUrl">Image Url</label>
+                <input #imageUrl="ngModel" [(ngModel)]="country.imageUrl" name="imageUrl" id="imageUrl" type="text"
+                    class="form-control shadow-sm input-border" required ngv-url>
+                <span class="text-white badge rounded-pill text-bg-danger"
+                    [style.visibility]="imageUrl.touched && imageUrl.invalid ? 'visible' : 'hidden'">
+                    *Country Image URL is required.
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label>Cities</label>
+                <div class="city-container d-flex flex-wrap">
+
+                    <ng-container *ngFor="let c of cities">
+                        <h4>
+                            @if(cities.indexOf(c) == 0) {
+                            <span class="city badge rounded-pill text-bg-secondary me-1 mt-1 d-flex">
+                                <a [class.disabled]="cities.length == 1 ? null : true" class="mousa-tooltip"
+                                    tooltip-text="Delete the Capital" data-bs-toggle="modal"
+                                    data-bs-target="#DeleteCityDialog" (click)="updateKey(c.id)">
+                                    <span class="x"><i class="bi bi-trash3-fill"></i></span>
+                                </a>
+                                {{ c.name }}
+                                <span class="mousa-tooltip" tooltip-text="The Capital"><i
+                                        class="bi bi-c-circle-fill ms-1"></i></span>
+                            </span>
+                            }
+                            @else {
+                            <span class="city badge rounded-pill text-bg-light me-1 mt-1 d-flex">
+                                <a class="mousa-tooltip" tooltip-text="Delete City" data-bs-toggle="modal"
+                                    data-bs-target="#DeleteCityDialog" (click)="updateKey(c.id)">
+                                    <span class="x"><i class="bi bi-trash3-fill"></i></span>
+                                </a>
+                                {{ c.name }}
+                            </span>
+                            }
+                        </h4>
+                    </ng-container>
+
+
+                    @if(isNewCountry == false)
+                    {<a data-bs-toggle="modal" data-bs-target="#cityDialog">
+                        <h4><span class="badge rounded-pill text-bg-primary me-1 mt-1 add-city mousa-tooltip"
+                                tooltip-text="Add New City">+ Add</span></h4>
+                    </a>}
+                    @else {<h4><span class="badge rounded-pill text-bg-warning me-1 mt-1">
+                        You can add cities in Edit mode only!
+                    </span></h4>}
+
+                </div>
+            </div>
+
+
+            <div class="d-flex justify-content-end mt-4 buttons">
+                <button type="button" class="btn btn-info shadow-sm" (click)="goBack()">Cancel</button>
+                <button type="button" class="btn btn-danger shadow-sm ms-2 me-2" data-bs-toggle="modal"
+                    data-bs-target="#deleteDialog" [disabled]="isNewCountry">Delete</button>
+                <button class="btn btn-primary shadow-sm" [disabled]="!f.valid">Save</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6 preview-card mt-3">
+        <country-card [show-actions]="false" [country]="country"></country-card>
+    </div>
+</div>
+
+<!-- Modals -->
+<div class="modal fade transition-all" id="deleteDialog" tabindex="-1" aria-labelledby="deleteDialog"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content text-bg-dark">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Country</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this country?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info shadow-sm" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger shadow-sm" data-bs-dismiss="modal"
+                    (click)="deleteCountry()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade transition-all" id="DeleteCityDialog" tabindex="-1" aria-labelledby="DeleteCityDialog"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content text-bg-dark">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete @if(cities.length == 1) {the Capital} @else
+                    {City}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete @if(cities.length == 1) {the capital} @else {this city}?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info shadow-sm" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger shadow-sm" data-bs-dismiss="modal"
+                    (click)="deleteCity()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade transition-all" id="cityDialog" tabindex="-1" aria-labelledby="cityDialog"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content text-bg-dark">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                    @if(cities.length == 0) {Add the capital} @else {Add city}
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <form #fc="ngForm" (ngSubmit)="addCity(fc.value, fc)">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="cityName">Name</label>
+                        <input name="cityName" id="cityName" type="text" class="form-control shadow-sm input-border"
+                            #cityName="ngModel" ngModel required>
+                        <span class="text-white badge rounded-pill text-bg-danger"
+                            [style.visibility]="cityName.touched && cityName.invalid ? 'visible' : 'hidden'">
+                            *City name is required.
+                        </span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info shadow-sm" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary shadow-sm" data-bs-dismiss="modal"
+                        [disabled]="!fc.valid">Add</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

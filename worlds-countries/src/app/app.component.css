@@ -1,0 +1,226 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.header-logo {
+    height: 50px;
+    transition: all 0.3s ease;
+}
+
+.header-logo:hover {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5)) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));  /* Neon glow effect */
+}
+
+.main {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: white;
+    margin: 0;
+    overflow-y: auto;  /* Enable scrolling */
+}
+
+main {
+    min-height: 75vh !important;
+}
+
+.nav-link {
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    text-shadow: 0 0 10px white, 0 0 20px white;  /* Neon glow effect for text */
+    cursor: pointer;
+}
+
+.nav-link.active:hover {
+    color: white;
+    text-shadow: none   /* Neon glow effect for text */
+}
+
+.main::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background: rgb(139, 56, 0);
+    background-image: linear-gradient(115deg, rgba(30, 30, 30, 0.9), rgba(50, 50, 50, 0.7)),
+        url(../assets/images/bg-airport.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: scroll;  /* Allows the background to scroll with the content */
+    animation: scrollBackground 3s ease-out forwards;  /* Adjust duration and timing */
+}
+
+.icon-size {
+    font-size: 20.5px;
+}
+
+.bi {
+    cursor: pointer;
+}
+
+.bi:hover {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.7);  /* Neon glow effect for text */
+}
+
+@keyframes scrollBackground {
+    0% {
+        background-position: center bottom;
+    }
+
+    100% {
+        background-position: center 40%;
+    }
+}
+
+::ng-deep .mat-mdc-paginator-icon {
+    fill: white !important;
+}
+
+::ng-deep .mat-mdc-icon-button[disabled] .mat-mdc-paginator-icon {
+    fill: rgb(150, 150, 150) !important;
+}
+
+.fixed-bottom-left {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;  /* Make sure the toast is on top of other elements */
+    margin: 1rem;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(180deg, var(--primary), var(--dark-primary)) !important;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+    transition: all 0.4s ease;
+}
+
+.modal-body h5 {
+    font-size: 18px;
+}
+
+.thumbnail {
+    height: 90px;
+    width: 90px;
+    border-radius: 100%;
+    object-fit: cover;
+    border: 1px solid white;
+}
+
+.btn-close {
+    filter: var(--bs-btn-close-white-filter) !important;
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top:hover {
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3) !important;  /*glow */
+    transform: translateY(-5px);   /* Move the card up by 5px */
+}
+
+.scroll-to-top:hover i {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.7);  /* Neon glow effect for text */
+}
+
+@media only screen and (max-width: 870px) {
+    footer {
+        padding-left: 10%;
+        padding-right: 10%;
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+.cc {
+    width: 50%;
+}
+
+@media only screen and (max-width: 770px) {
+    footer {
+        padding-left: 12.5%;
+        padding-right: 12.5%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .cc {
+        width: 65%;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .cc {
+        font-size: clamp(0.75rem, 1.739vw + 0.402rem, 1rem);
+    }
+
+    .icon-size {
+        font-size: clamp(1.031rem, 1.739vw + 0.683rem, 1.281rem);
+    }
+}
+
+@media only screen and (max-width: 475px) {
+    .header-logo {
+        width: 70%;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .nav-link,
+    .nav-link.active,
+    .nav-link:active {
+        font-size: clamp(0.75rem, 2.667vw + 0.217rem, 1rem);
+    }
+
+    footer {
+        padding-left: 17.5%;
+        padding-right: 17.5%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .cc {
+        margin: 0 auto;
+        width: auto;
+
+    }
+
+    .icons-container {
+        margin: 0 auto;
+    }
+
+    .mousa {
+        display: none;
+    }
+
+    .mousa-info {
+        width: 100%;
+    }
+}

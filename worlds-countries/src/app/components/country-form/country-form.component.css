@@ -1,0 +1,150 @@
+
+.btn:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.add-city {
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.add-city:hover {
+    background-color: #1f5ea7 !important;
+}
+
+.badge {
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.x {
+    transition: all 0.2s ease;
+    opacity: 0;
+    font-size: 0;
+    cursor: pointer;
+    color: var(--danger);
+    padding-bottom: 1px;
+    font-weight: 500;
+}
+
+.x:hover {
+    color: #7f0723;
+}
+
+.city:hover .x {
+    opacity: 1;
+    font-size: 17px;
+    margin-right: 5px;
+}
+
+.disabled {
+    pointer-events: none;  /* Prevents the link from being clicked */
+    color: gray;
+}
+
+.disabled .x {
+    color: gray;
+}
+
+.product-form,
+.preview-card {
+    order: 0;
+}
+
+input,
+textarea {
+    font-size: 17.5px;
+    font-weight: 500;
+}
+
+.input-border {
+    border: 2px solid var(--primary) !important;
+}
+
+.input-border:hover {
+    border: 2px solid #dbb782 !important;
+    box-shadow: 0 0 10px 5px rgba(202, 173, 129, 0.7) !important;   /*glow */
+}
+
+.input-border:focus {
+    border: 2px solid #0981d0 !important;
+    box-shadow: 0 0 10px 5px rgba(6, 109, 178, 0.7) !important;   /*glow */
+}
+
+.input-border:focus:hover {
+    border: 2px solid #09c3d0 !important;
+    box-shadow: 0 0 10px 5px rgba(6, 161, 178, 0.7) !important;    /*glow */
+}
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+    border: 2px solid rgb(246, 29, 80) !important;
+    box-shadow: 0 0 10px 5px rgba(212, 25, 70, 0.7) !important;    /*glow */
+}
+
+.text-bg-danger {
+    border: 2px solid rgb(246, 29, 80) !important;
+    box-shadow: 0 0 10px 5px rgba(212, 25, 70, 0.3) !important;    /*glow */
+}
+
+input.ng-invalid.ng-touched:hover,
+textarea.ng-invalid.ng-touched:hover {
+    border: 2px solid rgb(246, 112, 29) !important;
+    box-shadow: 0 0 10px 5px rgba(212, 90, 25, 0.7) !important;    /*glow */
+}
+
+input.ng-invalid.ng-touched:focus,
+textarea.ng-invalid.ng-touched:focus {
+    border: 2px solid rgb(225, 29, 189) !important;
+    box-shadow: 0 0 10px 5px rgba(212, 25, 178, 0.7) !important;    /*glow */
+}
+
+input.ng-invalid.ng-touched:focus:hover,
+textarea.ng-invalid.ng-touched:focus:hover {
+    border: 2px solid rgb(234, 112, 240) !important;
+    box-shadow: 0 0 10px 5px rgba(235, 106, 232, 0.7) !important;    /*glow */
+}
+
+.text-bg-warning {
+    border: 2px solid rgb(233, 222, 22) !important;
+}
+
+.modal-header {
+    border-bottom-color: #282f3b !important;
+}
+
+.modal-footer {
+    border-top-color: #282f3b !important;
+}
+
+.btn-close {
+    filter: var(--bs-btn-close-white-filter) !important;
+}
+
+@media only screen and (max-width: 768px) {
+    .preview-card {
+        margin-top: 20px !important;
+        order: -1;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .buttons {
+        flex-direction: column-reverse;
+    }
+
+    .buttons .btn {
+        width: 100%;
+        margin: 5px 0 5px 0 !important;
+    }
+
+    .breadcrumb-item {
+        font-size: clamp(0.844rem, 2.188vw + 0.406rem, 1.063rem);
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    .first-breadcrumb {
+        display: none;
+    }
+}

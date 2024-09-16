@@ -1,0 +1,67 @@
+<div class="px-4 text-center transition-all">
+  <h1 class="display-5 fw-bold text-white">World's Countries</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4 text-white cool">Travel The world from your home</p>
+
+    <div class="video-background-container">
+      <img src="../assets/images/cloud-ss.png" class="video-Image-background">
+      <video autoplay muted loop class="video-background">
+        <source src="../../assets/images/Incredible-clouds720p.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <img src="../../assets/images/window.png" alt="Your Image" class="foreground-image">
+    </div>
+  </div>
+</div>
+
+<div class="transition-all">
+
+  <!-- Three columns of text below the carousel -->
+  <div class="row">
+
+    <ng-container *ngFor="let c of paginatedCountries; let count = index">
+      @if(count % 3 == 0){
+        @if(count % 2 == 0){
+          <div class="col-3 card-size mb-3 card-right card-odd">
+            <country-card [country]="c" [show-actions]="true"></country-card>
+          </div>
+        }
+        @else {
+          <div class="col-3 card-size mb-3 card-right card-even">
+            <country-card [country]="c" [show-actions]="true"></country-card>
+          </div>
+        }
+      } @else if(count % 3 == 1) { 
+        @if(count % 2 == 0){
+          <div class="col-3 card-size mb-3 card-center card-odd">
+            <country-card [country]="c" [show-actions]="true"></country-card>
+          </div>
+        }
+        @else {
+          <div class="col-3 card-size mb-3 card-center card-even">
+            <country-card [country]="c" [show-actions]="true"></country-card>
+          </div>
+        }
+      } @else {
+        @if(count % 2 == 0){
+          <div class="col-3 card-size mb-3 card-left card-odd">
+            <country-card [country]="c" [show-actions]="true"></country-card>
+          </div>
+        }
+        @else {
+          <div class="col-3 card-size mb-3 card-left card-even">
+            <country-card [country]="c" [show-actions]="true"></country-card>
+          </div>
+        }
+      }
+    </ng-container>
+
+  </div>
+
+  <mat-paginator [length]="countries.length"
+    [pageSize]="pageSize"
+    aria-label="Select page"
+    (page)="pageEvent = $event; updatePaginator()">
+  </mat-paginator>
+
+</div>

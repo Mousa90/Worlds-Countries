@@ -1,0 +1,56 @@
+.m-top-7 {
+    margin-top: 7%;
+}
+
+.btn-primary {
+    border-color: #03366f;
+    background: linear-gradient(180deg, #034e80, #021f41) !important;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3) !important;
+    /*glow */
+}
+
+.bi-exclamation-circle-fill {
+    filter: drop-shadow(0 0 5px White) drop-shadow(0 0 10px White);
+    /* Neon glow effect */
+    animation: flicker 3s infinite;
+    /* Flickering animation */
+}
+
+@keyframes flicker {
+    0% {
+        filter: drop-shadow(0 0 5px White) drop-shadow(0 0 2px White);
+    }
+    10% {
+        filter: drop-shadow(0 0 5px White) drop-shadow(0 0 5px White);
+    }
+    20% {
+        filter: drop-shadow(0 0 5px White) drop-shadow(0 0 0px White);
+    }
+    30% {
+        filter: drop-shadow(0 0 5px White) drop-shadow(0 0 5px White);
+    }
+    40% {
+        filter: drop-shadow(0 0 5px White) drop-shadow(0 0 0px White);
+    }
+    50% {
+        filter: drop-shadow(0 0 5px White) drop-shadow(0 0 0px White);
+    }
+    60% {
+        filter: drop-shadow(0 0 5px White) drop-shadow(0 0 5px White);
+    }
+    70% {
+        filter: drop-shadow(0 0 5px White) drop-shadow(0 0 0px White);
+    }
+    80% {
+        filter: drop-shadow(0 0 5px White) drop-shadow(0 0 0px White);
+    }
+    90% {
+        filter: drop-shadow(0 0 5px White) drop-shadow(0 0 5px White);
+    }
+    100% {
+        filter: drop-shadow(0 0 5px White) drop-shadow(0 0 2px White);
+    }
+}

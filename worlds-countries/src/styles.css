@@ -1,0 +1,244 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.cdnfonts.com/css/01-digit');
+
+.test1 {
+  background-color: blueviolet;
+}
+.test2 {
+  background-color: rgb(230, 178, 23);
+}
+.test3 {
+  background-color: #2be280;
+}
+
+:root {
+  --primary: #066db1;
+  --dark-primary: #0149a1;
+  --secondary: #ccb38e;
+  --success: #5EAC0C;
+  --dark-success: #21994d;
+  --info: #98a4b0;
+  --warning: #facb3c;
+  --selection: #ec0138;
+  --danger: #d41946;
+  --light: #f1f1f1;
+  --dark: #212529;
+  --dinosaur: #5d59a6;
+  --sakura: #faaca8;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+  color: white;
+}
+
+.breadcrumb-item a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.breadcrumb-item a:hover {
+  text-shadow: 0 0 10px #066db2, 0 0 20px #066db2;  /* Neon glow effect for text */
+}
+
+.btn-primary,
+.add-city {
+  background: linear-gradient(180deg, #066db2, #0149A1) !important;
+}
+
+.btn-primary:hover,
+.add-city:hover {
+  background: linear-gradient(180deg, #087fce, #025ac6) !important;
+  box-shadow: 0 0 10px 5px rgba(6, 109, 178, 0.3) !important;  /*glow */
+}
+
+.btn-primary:active .add-city:active {
+  background: linear-gradient(-180deg, #066db2, #0149A1) !important;
+}
+
+.btn-secondary,
+.nav-link.active,
+.nav-link:active {
+  background: linear-gradient(180deg, #ccb38e, #a48b65) !important;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(180deg, #e9cda4, #c3a679) !important;
+  box-shadow: 0 0 10px 5px rgba(202, 173, 129, 0.7) !important;  /*glow */
+}
+
+.btn-secondary:active {
+  background: linear-gradient(-180deg, #ccb38e, #a48b65) !important;
+}
+
+.btn-danger {
+  background: linear-gradient(180deg, #f01c4d, #d20031) !important;
+}
+
+.btn-danger:hover {
+  background: linear-gradient(180deg, #ff1f53, #ec0138) !important;
+  box-shadow: 0 0 10px 5px rgba(212, 25, 70, 0.7) !important;  /*glow */
+}
+
+.btn-danger:active {
+  background: linear-gradient(-180deg, #f01c4d, #d20031) !important;
+}
+
+.btn-info {
+  background: linear-gradient(180deg, #98a4b0, #79838d) !important;
+}
+
+.btn-info:hover {
+  background: linear-gradient(180deg, #98a4b0, #79838d) !important;
+  box-shadow: 0 0 10px 5px rgba(152, 164, 176, 0.5) !important;  /*glow */
+}
+
+.btn-info:active {
+  background: linear-gradient(-180deg, #98a4b0, #79838d) !important;
+}
+
+.child-center {
+  margin: 0 auto !important;
+}
+
+.col-2-5 {
+  flex: 0 0 calc(2.5 * (100% / 12));
+  max-width: calc(2.5 * (100% / 12));
+}
+
+.col-1-5 {
+  flex: 0 0 calc(1.5 * (100% / 12));
+  max-width: calc(1.5 * (100% / 12));
+}
+
+.col-0-5 {
+  flex: 0 0 calc(0.5 * (100% / 12));
+  max-width: calc(0.5 * (100% / 12));
+}
+
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+::selection {
+  background-color: rgba(1, 73, 161, 0.6);
+  color: white;
+  text-shadow: 0 0 10px rgba(173, 195, 222, 0.7), 0 0 20px rgba(173, 195, 222, 0.7);
+}
+
+/* Apply custom scrollbar for WebKit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 16px !important;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--dark) !important;
+  border: 1px solid var(--dark) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px !important;
+  border: 3px solid transparent !important;
+  background-clip: content-box !important;
+  background-color: var(--secondary) !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #c3a679 !important;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--primary) !important;
+}
+
+textarea::-webkit-scrollbar-track {
+  background-color: var(--light) !important;
+  border: 1px solid var(--light) !important;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: var(--dark) !important;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+  background-color: #16191c !important;
+  cursor: auto;
+}
+
+textarea::-webkit-scrollbar-thumb:active {
+  background-color: var(--dark-primary) !important;
+}
+
+textarea::-webkit-scrollbar-corner {
+  background-color: var(--light) !important;
+}
+
+/* Apply custom scrollbar for Firefox-only */
+@-moz-document url-prefix() {
+  * {
+    scrollbar-width: thin;  /* Options: auto, thin, none */
+    scrollbar-color: var(--secondary) var(--dark);  /* thumb color, track color */
+  }
+}
+
+.btn-secondary {
+  color: white !important;
+}
+
+.fw-semi-bold {
+  font-weight: 500;
+}
+
+.btn,
+.mat-mdc-select-value,
+.modal,
+.card-text,
+label,
+.form-control,
+ngb-toast,
+breadcrumb li {
+  font-size: clamp(0.844rem, 0.288vw + 0.786rem, 1.063rem) !important;
+}
+
+/* Tooltip container */
+.mousa-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text using ::before */
+.mousa-tooltip::before {
+  content: attr(tooltip-text);  /* Tooltip text */
+  visibility: hidden;  /* Hidden by default */
+  width: auto;
+  background-color: var(--dark);
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 5px;
+  position: absolute;
+  z-index: 100;
+  bottom: 125%;  /* Position above the button */
+  left: 50%;
+  margin-left: -60px;  /* Center the tooltip horizontally */
+  opacity: 0;  /* Hidden by default */
+  transition: opacity 0.3s, visibility 0.3s;  /* Smooth transition for visibility and opacity */
+  white-space: nowrap;  /* Prevents text wrapping */
+  font-size: small;
+  font-weight: 600;
+}
+
+/* Show the tooltip text when hovering over the button */
+.mousa-tooltip:hover::before {
+  visibility: visible;  /* Make visible on hover */
+  opacity: 1;  /* Fully opaque on hover */
+}

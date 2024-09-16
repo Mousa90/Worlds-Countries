@@ -1,0 +1,16 @@
+
+@if (toastService.showToast) {
+  <ngb-toast
+      [autohide]="true"
+      (hidden)="toastService.showToast = false"
+      [delay]="5000"
+      [class.bg-white]="true">
+      <div class="toast-div">
+          <i class="bi" [ngClass]="{
+              'bi-check-circle-fill text-success mb-1': toastService.toastStatus == 'success',
+              'bi-exclamation-circle-fill text-danger mb-1': toastService.toastStatus == 'failure'
+          }"></i>
+          <span class="toastText">{{ toastService.toastText }}</span>
+      </div>
+  </ngb-toast>
+}

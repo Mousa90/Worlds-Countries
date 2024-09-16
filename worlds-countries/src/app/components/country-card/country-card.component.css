@@ -1,0 +1,258 @@
+.card {
+    background: linear-gradient(45deg, rgba(15, 15, 15, 0.75) 0%, rgba(30, 30, 30, 0.75) 77%, rgba(55, 55, 55, 0.75) 100%);
+    width: 310px;
+    height: 372px;
+    z-index: 1;
+}
+
+.btn,
+.mat-mdc-select-value,
+.modal,
+.card-text,
+label,
+.form-control,
+ngb-toast {
+    font-size: 16px !important;
+}
+
+.border-secondary {
+    border: 1px solid var(--secondary);
+}
+
+.card-text {
+    height: 110px;
+}
+
+.card-title {
+    font-size: clamp(1.375rem, 0.164vw + 1.342rem, 1.5rem) !important;
+}
+
+.card-img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(15, 15, 15, 0.75) 0%, rgba(30, 30, 30, 0.75) 77%, rgba(55, 55, 55, 0.75) 100%);
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Move the card up by 10px */
+    box-shadow: 0 0 15px 4px rgba(255, 255, 255, 0.3) !important; /* White glow */
+    outline: 1px solid #e5cda9;
+}
+
+.card-img-overlay:hover {
+    background: linear-gradient(45deg, rgba(27, 27, 27, 0.6) 0%, rgba(43, 43, 43, 0.6) 77%, rgba(68, 68, 68, 0.6) 100%);
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire container */
+}
+
+.btn {
+    height: 45px;
+}
+
+.circle-img-container {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 50%; /* Makes the image circular */
+    box-shadow: 1px 1px 12px 2px rgba(0, 0, 0, 0.3);
+}
+
+.circle-img-container img,
+.modal-circle-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire container */
+    border-radius: 50%; /* Makes the image circular */
+    background: linear-gradient(45deg, rgba(27, 27, 27, 0.9) 0%, rgba(43, 43, 43, 0.9) 77%, rgba(68, 68, 68, 0.9) 100%);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(27, 27, 27, 0.10416666666666663) 0%, rgba(212, 212, 212, 0.29744397759103647) 100%);
+    border-radius: 50%; /* Matches the border-radius of the image */
+}
+
+.modal-content {
+    border-radius: 40px;
+    border: 1px solid var(--secondary)
+}
+
+.modal-circle-img-container {
+    width: calc(50px + 0.6vw);
+    height: calc(50px + 0.6vw);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 50%; /* Makes the image circular */
+    box-shadow: 1px 1px 12px 2px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--secondary) !important;
+}
+
+.modal-footer {
+    border-top: none
+}
+
+.modal-footer .btn {
+    font-size: calc(0.88rem + 0.3vw);
+}
+
+.description {
+    font-size: calc(0.88rem + 0.3vw);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 1);
+}
+
+h1 {
+    font-size: clamp(1.625rem, 0.493vw + 1.526rem, 2rem);
+}
+
+h4 {
+    font-size: clamp(1.25rem, 0.493vw + 1.151rem, 1.625rem);
+}
+
+.city {
+    font-size: calc(0.9rem + 0.3vw);
+    background: linear-gradient(180deg, #f1f1f1, #cacaca) !important;
+}
+
+.capital {
+    font-size: calc(0.9rem + 0.3vw);
+    background: linear-gradient(180deg, #e6cba4, #cfb083) !important;
+}
+
+.no-city {
+    font-size: calc(0.9rem + 0.3vw);
+    background: linear-gradient(180deg, #f9d76f, #fccf46) !important;
+    white-space: normal;
+}
+
+.container {
+    position: relative;
+    width: 310px;
+    height: 372px;
+}
+
+.preview-neon-arrow {
+    position: absolute;
+    width: 100%;
+    height: 85px;
+    background: url('../../../assets/images/black-arrow.png') no-repeat center center;
+    background-size: cover;
+    top: -27%;
+    left: 0;
+    animation: move-up-down 3s infinite;
+    z-index: 10;
+    margin: 0 auto;
+    filter: drop-shadow(0 0 5px var(--danger)) drop-shadow(0 0 10px var(--danger)); /* Neon glow effect on the arrow */
+    font-size: 24px;
+    color: var(--danger);
+    text-shadow: 0 0 10px var(--danger), 0 0 20px var(--danger);  /* Neon glow effect for text */
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding-bottom: 13px;
+    fill: linear-gradient(-180deg, #333436, #1b1c1d) !important;
+}
+
+.preview-neon-arrow h4 {
+    font-weight: 400;
+}
+
+@keyframes move-up-down {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .preview-neon-arrow {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 577px) {
+    .card {
+        width: 65%;
+        height: 372px;
+    }
+
+}
+
+@media only screen and (max-width: 506px) {
+    .card {
+        width: 60%;
+        height: 372px;
+    }
+
+    .btn,
+    .mat-mdc-select-value,
+    .modal,
+    .card-text,
+    label,
+    .form-control,
+    ngb-toast {
+        font-size: clamp(0.875rem, 0.417vw + 0.792rem, 1.125rem) !important;
+    }
+}
+
+@media only screen and (max-width: 470px) {
+    .card {
+        width: 90%;
+        height: 365px;
+    }
+
+    .circle-img-container {
+        width: 95px;
+        height: 95px;
+    }
+
+    .btn,
+    .mat-mdc-select-value,
+    .modal,
+    .card-text,
+    label,
+    .form-control,
+    ngb-toast {
+        font-size: clamp(0.875rem, 2vw + 0.475rem, 1.063rem) !important;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .card {
+        width: 90%;
+        height: 350px;
+    }
+
+    .circle-img-container {
+        width: 85px;
+        height: 85px;
+    }
+
+}

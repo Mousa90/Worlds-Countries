@@ -1,0 +1,71 @@
+<!-- Card element -->
+<div class="card text-white rounded-5 mb-3 border-secondary shadow-lg child-center transition-all">
+  <div *ngIf="!country.imageUrl" class="card-img rounded-5 text-bg-dark"></div>
+  <img *ngIf="country.imageUrl" src="{{ country.imageUrl }}" class="card-img rounded-5" alt="{{ country.name }}">
+  <div class="card-img-overlay rounded-5">
+    <h4 *ngIf="!country.name" class="card-title text-center mb-3 mt-1 text-light">Country Name</h4>
+    <h4 *ngIf="country.name" class="card-title text-center mb-3 mt-1">{{ country.name }}</h4>
+    <div class="circle-img-container child-center">
+      <div *ngIf="!country.flagUrl" class="img-fluid rounded-circle text-bg-dark z-0"></div>
+      <img *ngIf="country.flagUrl" class="img-fluid rounded-circle text-bg-dark z-0" src="{{ country.flagUrl }}">
+      <div class="overlay"></div>
+    </div>
+    <p *ngIf="!country.description" class="card-text mt-3 text-center text-light">Country Descriptions</p>
+    <p *ngIf="country.description" class="card-text mt-3">{{ trimString(country.description) }}</p>
+    <button type="button" (click)="refreshCities()"
+      class="btn btn-primary w-100 mt-1 mb-3 border-primary rounded-pill shadow-lg" data-bs-toggle="modal"
+      [attr.data-bs-target]="'#Modal'+country.id">
+      View Country
+    </button>
+  </div>
+
+  <!-- Neon arrow with 'Preview' text  -->
+  @if(!showActions){ <div class="preview-neon-arrow">
+    <h4>Preview</h4>
+  </div> }
+</div>
+
+<!-- Vertically centered scrollable modal -->
+<div class="modal fade transition-all" [attr.id]="'Modal'+country.id" tabindex="-1"
+  [attr.aria-labelledby]="'Modal'+country.id" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content  text-bg-dark"
+      style="background-image: linear-gradient(45deg, rgba(10,10,10,0.6) 0%, rgba(20,20,20,0.6) 77%, rgba(40,40,40,0.6) 100%), url('{{ country.imageUrl }}'); background-size: cover; background-position: center;">
+      <div class="modal-header">
+        <div class="modal-circle-img-container me-3">
+          <div *ngIf="!country.flagUrl" class="card-img rounded-5 text-bg-dark"></div>
+          <img *ngIf="country.flagUrl" class="img-fluid rounded-circle z-0" src="{{ country.flagUrl }}">
+          <div class="overlay"></div>
+        </div>
+        <h1 *ngIf="!country.name" class="modal-title text-center" id="exampleModalCenterTitle">Country Name</h1>
+        <h1 *ngIf="country.name" class="modal-title text-center" id="exampleModalCenterTitle">{{ country.name }}</h1>
+      </div>
+      <div class="modal-body">
+
+        <h4 class="description-title">About:</h4>
+        <p *ngIf="!country.description" class="description">Country Descriptions</p>
+        <p *ngIf="country.description" class="description">{{ country.description }}</p>
+
+        <h4 *ngIf="!country.name" clas="description-title">The cities of this country:</h4>
+        <h4 *ngIf="country.name" clas="description-title">The cities of {{ country.name }}:</h4>
+        <div class="d-flex flex-wrap">
+          <ng-container *ngFor="let c of cities">
+            @if(cities.indexOf(c) == 0) {
+            <span class="capital badge rounded-pill text-bg-secondary me-1 mt-1 d-flex">{{ c.name }}
+              <span class=" mousa-tooltip" tooltip-text="The Capital"><i
+                  class="bi bi-c-circle-fill ms-1"></i></span></span>
+            } @else {<span class="city badge rounded-pill text-bg-light me-1 mt-1 d-flex">{{ c.name }}</span>}
+          </ng-container>
+          @if(cities.length === 0) {<span class="no-city badge rounded-pill text-bg-warning me-1 mt-1 d-flex flex-wrap">
+            There are no cities entered for this country
+          </span>}
+        </div>
+
+      </div>
+      <div class="modal-footer pt-1">
+        <button type="button" class="btn btn-primary rounded-pill border-primary shadow-lg mx-2 w-100"
+          data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
